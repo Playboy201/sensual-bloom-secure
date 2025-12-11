@@ -36,10 +36,10 @@ export default function Index() {
   }
 
   return (
-    <div 
+    <div
       className="min-h-screen flex flex-col items-center justify-center p-4"
-      style={{ 
-        background: 'linear-gradient(180deg, hsl(222 47% 11%) 0%, hsl(222 47% 18%) 50%, hsl(160 30% 15%) 100%)' 
+      style={{
+        background: 'linear-gradient(180deg, hsl(0 0% 8%) 0%, hsl(0 0% 5%) 50%, hsl(0 50% 8%) 100%)'
       }}
     >
       <div className="w-full max-w-lg text-center">

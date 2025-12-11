@@ -29,7 +29,7 @@ export function StepIndicator({ steps, currentStep, className }: StepIndicatorPr
                   'w-10 h-10 rounded-full flex items-center justify-center',
                   'text-sm font-semibold transition-all duration-300',
                   isCompleted && 'bg-primary text-primary-foreground',
-                  isActive && 'bg-primary text-primary-foreground shadow-emerald animate-pulse-glow',
+                  isActive && 'bg-primary text-primary-foreground shadow-[0_4px_20px_-4px_hsl(0_84%_60%/0.4)] animate-pulse-glow',
                   isPending && 'bg-muted text-muted-foreground'
                 )}
               >

@@ -68,8 +68,8 @@ export function IntentStep({ selectedType, onSelect, isSubmitting, onBack }: Int
                 'disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none',
                 selectedType === value
                   ? color === 'emerald'
-                    ? 'border-primary bg-primary/10 shadow-emerald focus:ring-primary'
-                    : 'border-secondary bg-secondary/10 shadow-gold focus:ring-secondary'
+                    ? 'border-primary bg-primary/10 shadow-[0_4px_20px_-4px_hsl(0_84%_60%/0.4)] focus:ring-primary'
+                    : 'border-secondary bg-secondary/10 shadow-[0_4px_20px_-4px_hsl(340_82%_65%/0.4)] focus:ring-secondary'
                   : 'border-border bg-card hover:border-primary/50 focus:ring-primary/50'
               )}
             >

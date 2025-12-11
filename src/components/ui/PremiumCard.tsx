@@ -26,9 +26,9 @@ export function PremiumCard({
     >
       {/* Subtle gradient overlay */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-30"
+        className="absolute inset-0 pointer-events-none opacity-20"
         style={{
-          background: 'linear-gradient(135deg, hsl(var(--gold) / 0.05) 0%, transparent 50%)',
+          background: 'linear-gradient(135deg, hsl(var(--secondary) / 0.08) 0%, hsl(var(--primary) / 0.05) 50%, transparent 100%)',
         }}
       />
       
@@ -38,7 +38,7 @@ export function PremiumCard({
 
   if (goldBorder) {
     return (
-      <div className="p-[1px] rounded-xl bg-gradient-to-br from-gold via-gold-light to-gold-dark shadow-gold">
+      <div className="p-[1px] rounded-xl bg-gradient-to-br from-secondary via-secondary/90 to-secondary/80 shadow-[0_4px_20px_-4px_hsl(340_82%_65%/0.4)]">
         {cardContent}
       </div>
     );

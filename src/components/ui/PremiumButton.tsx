@@ -14,12 +14,12 @@ const variants = {
   primary: cn(
     'bg-primary text-primary-foreground',
     'hover:bg-primary/90',
-    'shadow-emerald'
+    'shadow-[0_4px_20px_-4px_hsl(0_84%_60%/0.4)]'
   ),
   secondary: cn(
     'bg-secondary text-secondary-foreground',
     'hover:bg-secondary/90',
-    'shadow-gold'
+    'shadow-[0_4px_20px_-4px_hsl(340_82%_65%/0.4)]'
   ),
   outline: cn(
     'bg-transparent border-2 border-primary text-primary',

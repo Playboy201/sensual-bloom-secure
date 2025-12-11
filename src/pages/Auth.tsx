@@ -66,7 +66,7 @@ export default function Auth() {
         }
       } else {
         toast.success(isLogin ? 'Bem-vindo de volta!' : 'Conta criada com sucesso!');
-        navigate('/onboarding');
+        navigate('/');
       }
     } catch (err) {
       toast.error('Erro inesperado. Tente novamente.');
@@ -76,10 +76,10 @@ export default function Auth() {
   };
 
   return (
-    <div 
+    <div
       className="min-h-screen flex items-center justify-center p-4"
-      style={{ 
-        background: 'linear-gradient(180deg, hsl(222 47% 11%) 0%, hsl(222 47% 18%) 50%, hsl(160 30% 15%) 100%)' 
+      style={{
+        background: 'linear-gradient(180deg, hsl(0 0% 8%) 0%, hsl(0 0% 5%) 50%, hsl(0 50% 8%) 100%)'
       }}
     >
       <div className="w-full max-w-md">

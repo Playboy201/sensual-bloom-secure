@@ -17,7 +17,7 @@ export function Logo({ size = 'md', className }: LogoProps) {
       <h1
         className={cn(
           'font-display font-bold tracking-tight',
-          'text-gradient-gold',
+          'bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-primary',
           sizes[size]
         )}
       >
