@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Shield, ArrowRight, Sparkles } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
@@ -11,19 +10,7 @@ export default function Index() {
   const navigate = useNavigate();
   const { user, profile, isLoading } = useAuth();
 
-  useEffect(() => {
-    if (!isLoading && user && profile) {
-      // Redirect based on account type
-      if (profile.account_type === 'buyer') {
-        navigate('/buyer');
-      } else if (profile.account_type === 'provider') {
-        navigate('/provider');
-      } else {
-        navigate('/onboarding');
-      }
-    }
-  }, [user, profile, isLoading, navigate]);
-
+  // Mostrar loading apenas durante o carregamento inicial
   if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background">
@@ -39,7 +26,7 @@ export default function Index() {
     <div
       className="min-h-screen flex flex-col items-center justify-center p-4"
       style={{
-        background: 'linear-gradient(180deg, hsl(0 0% 8%) 0%, hsl(0 0% 5%) 50%, hsl(0 50% 8%) 100%)'
+        background: 'linear-gradient(180deg, hsl(0 0% 5%) 0%, hsl(340 30% 8%) 50%, hsl(0 0% 3%) 100%)'
       }}
     >
       <div className="w-full max-w-lg text-center">
@@ -64,13 +51,33 @@ export default function Index() {
 
             <div className="space-y-3">
               {user ? (
-                <PremiumButton 
-                  onClick={() => navigate('/onboarding')} 
-                  rightIcon={<Sparkles className="w-5 h-5" />}
-                  className="w-full"
-                >
-                  Continuar Registo
-                </PremiumButton>
+                <>
+                  {profile?.account_type === 'buyer' ? (
+                    <PremiumButton 
+                      onClick={() => navigate('/buyer')} 
+                      rightIcon={<ArrowRight className="w-5 h-5" />}
+                      className="w-full"
+                    >
+                      Ir para Dashboard
+                    </PremiumButton>
+                  ) : profile?.account_type === 'provider' ? (
+                    <PremiumButton 
+                      onClick={() => navigate('/provider')} 
+                      rightIcon={<ArrowRight className="w-5 h-5" />}
+                      className="w-full"
+                    >
+                      Ir para Dashboard
+                    </PremiumButton>
+                  ) : (
+                    <PremiumButton 
+                      onClick={() => navigate('/onboarding')} 
+                      rightIcon={<Sparkles className="w-5 h-5" />}
+                      className="w-full"
+                    >
+                      Continuar Registo
+                    </PremiumButton>
+                  )}
+                </>
               ) : (
                 <>
                   <PremiumButton 

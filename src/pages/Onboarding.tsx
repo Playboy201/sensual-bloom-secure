@@ -193,7 +193,7 @@ export default function Onboarding() {
     <div
       className="min-h-screen p-4"
       style={{
-        background: 'linear-gradient(180deg, hsl(0 0% 8%) 0%, hsl(0 0% 5%) 50%, hsl(0 50% 8%) 100%)'
+        background: 'linear-gradient(180deg, hsl(0 0% 5%) 0%, hsl(340 30% 8%) 50%, hsl(0 0% 3%) 100%)'
       }}
     >
       {step === 'welcome' && (

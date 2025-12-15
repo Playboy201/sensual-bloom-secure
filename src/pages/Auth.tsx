@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { Mail, Lock, Eye, EyeOff, ArrowLeft } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
@@ -18,19 +18,13 @@ const authSchema = z.object({
 export default function Auth() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const { signIn, signUp, user } = useAuth();
+  const { signIn, signUp, user, isLoading: authLoading } = useAuth();
   const [isLogin, setIsLogin] = useState(searchParams.get('mode') !== 'signup');
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState<{ email?: string; password?: string }>({});
-
-  useEffect(() => {
-    if (user) {
-      navigate('/onboarding');
-    }
-  }, [user, navigate]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -66,7 +60,10 @@ export default function Auth() {
         }
       } else {
         toast.success(isLogin ? 'Bem-vindo de volta!' : 'Conta criada com sucesso!');
-        navigate('/');
+        // Wait a bit for auth state to update, then navigate
+        setTimeout(() => {
+          navigate('/');
+        }, 100);
       }
     } catch (err) {
       toast.error('Erro inesperado. Tente novamente.');
@@ -79,7 +76,7 @@ export default function Auth() {
     <div
       className="min-h-screen flex items-center justify-center p-4"
       style={{
-        background: 'linear-gradient(180deg, hsl(0 0% 8%) 0%, hsl(0 0% 5%) 50%, hsl(0 50% 8%) 100%)'
+        background: 'linear-gradient(180deg, hsl(0 0% 5%) 0%, hsl(340 30% 8%) 50%, hsl(0 0% 3%) 100%)'
       }}
     >
       <div className="w-full max-w-md">

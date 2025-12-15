@@ -28,7 +28,7 @@ export function PremiumCard({
       <div
         className="absolute inset-0 pointer-events-none opacity-20"
         style={{
-          background: 'linear-gradient(135deg, hsl(var(--secondary) / 0.08) 0%, hsl(var(--primary) / 0.05) 50%, transparent 100%)',
+          background: `linear-gradient(135deg, hsla(var(--secondary), 0.08) 0%, hsla(var(--primary), 0.05) 50%, transparent 100%)`,
         }}
       />
       
@@ -38,7 +38,7 @@ export function PremiumCard({
 
   if (goldBorder) {
     return (
-      <div className="p-[1px] rounded-xl bg-gradient-to-br from-secondary via-secondary/90 to-secondary/80 shadow-[0_4px_20px_-4px_hsl(340_82%_65%/0.4)]">
+      <div className="p-[1px] rounded-xl bg-gradient-to-br from-secondary via-secondary/90 to-secondary/80" style={{ boxShadow: 'var(--shadow-gold)' }}>
         {cardContent}
       </div>
     );
